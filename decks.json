@@ -1,8 +1,8 @@
 {
   "flexwatt-pitch": {
     "deck_file": null,
-    "gated": false,
-    "project_id": null,
+    "gated": true,
+    "project_id": "fe785df0-248d-4c3e-8345-63a571a5d203",
     "title": "FlexWatt \u2014 Seed"
   }
 }
