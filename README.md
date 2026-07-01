@@ -24,9 +24,11 @@ Publish **Claude Design** decks to shareable web URLs — so anyone outside Allo
 
 ## Public vs. gated
 - **Open decks** are public to anyone with the URL.
-- **Confidential decks: use `--gated --password "…"`.** The slide-bearing `index.html` is **AES-256-GCM encrypted client-side** (PBKDF2-SHA256, 250k iters); the published page is a password prompt that decrypts in-browser and renders the deck in an isolated iframe. The static host only ever serves ciphertext for the confidential part. The runtime files (React, `support.js`, design-system CSS/JS — no secrets) stay plaintext siblings.
+- **Confidential decks: use `--gated`.** The slide-bearing `index.html` is **AES-256-GCM encrypted client-side** (PBKDF2-SHA256, 250k iters); the published page is a password prompt that decrypts in-browser and renders the deck in an isolated iframe. The static host only ever serves ciphertext for the confidential part. The runtime files (React, `support.js`, design-system CSS/JS — no secrets) stay plaintext siblings.
+  - **Shared team password.** `--gated` uses the shared default password in **`.deck-secret`** (git-ignored — never committed; the repo is public). So the team remembers one password across all gated decks. Override for a one-off with `--password "…"`.
+  - **Change the shared password:** `/change-password "<new>"` (or `python3 scripts/change_deck_password.py "<new>"` + re-publish). Because each gated deck bakes the password into its ciphertext, rotation **re-encrypts + re-publishes every gated deck** (a fresh Claude Design pull each) — there's no central password to flip. `decks.json` tracks which decks are gated so rotation finds them all.
   - **Share the password out-of-band** (not in the repo, not in the URL).
-  - **"Revoke" = re-publish with a new password.** The gate is per-deck, not per-person — there's no per-viewer access log. For a deck that needs per-recipient control or an audit trail, use a real auth'd host instead of this repo.
+  - **The gate is per-deck, not per-person** — one shared password protects all gated decks (so one leak exposes them all), and there's no per-viewer access log. Memorable, but weaker than per-recipient auth. For a deck that needs per-recipient control or an audit trail, use a real auth'd host instead.
 
 ## Layout
 - `scripts/publish_design_deck.py` — the transform + publish orchestrator.

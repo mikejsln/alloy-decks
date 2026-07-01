@@ -9,7 +9,7 @@ You are publishing a **Claude Design deck** to the public **alloy-decks** GitHub
 - `<project-id>` — the Claude Design project UUID (from the project URL `claude.ai/design/p/<id>`).
 - `--file` — the deck file name (default: the project's single `*.dc.html`).
 - `--slug` — the URL slug (default: kebab-case of the project/deck name).
-- `--gated --password <pw>` — password-protect the deck (client-side AES-256-GCM). Confidential decks MUST use this — the site is otherwise public by URL.
+- `--gated` — password-protect the deck (client-side AES-256-GCM). Uses the **shared team password** in `.deck-secret` by default (override with `--password <pw>`). Confidential decks MUST use `--gated` — the site is otherwise public by URL. Pass `--project-id <id>` on gated publishes so `/change-password` can re-pull the deck on rotation.
 
 ## Process
 1. **Confirm the project.** `DesignSync get_project` on the id (verify name + that you can read it). If the tool errors on auth, tell the user to run in an interactive session with their claude.ai login (it can't run headless).

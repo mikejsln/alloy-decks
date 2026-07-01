@@ -6,28 +6,25 @@ GitHub Pages repo and publish it to a public (or password-gated) URL.
 The DesignSync PULL happens in the /publish-deck command (interactive — the
 DesignSync MCP tool needs the member's claude.ai login and can't run headless).
 This script does the deterministic transform + publish, given a local directory
-of already-pulled RAW design files:
-
-  <src>/<name>.dc.html                 the exported Claude Design deck
-  <src>/support.js  <src>/deck-stage.js   the dc-runtime
-  <src>/_ds/<design-system>/_ds_bundle.js + colors_and_type.css
-  <src>/assets/*.svg (+ any other referenced siblings)
+of already-pulled RAW design files.
 
 Transforms: inject React/ReactDOM (pinned + SRI) so the dc-runtime renders
 standalone; rewrite the design-system CSS to load DM Sans + Roboto Mono from
-Google Fonts (NeuSans's sanctioned web substitute — no proprietary font files
-shipped). With --gated, the slide-bearing index.html is AES-256-GCM encrypted
-behind a password page; the non-confidential runtime files stay plaintext
-siblings (the iframe srcdoc resolves them against /<slug>/).
+Google Fonts (NeuSans's sanctioned web substitute). With --gated, the
+slide-bearing index.html is AES-256-GCM encrypted behind a password page.
+
+Password for --gated: --password wins; else the SHARED default in the repo's
+gitignored `.deck-secret`; else error. Every publish records the deck in
+`decks.json` (gated flag + project id) so `change_deck_password.py` knows which
+decks to re-encrypt on rotation.
 
 Usage:
-  publish_design_deck.py --src <dir> --slug <slug> --title "<title>"
-  publish_design_deck.py --src <dir> --slug <slug> --title "<t>" --gated --password <pw>
+  publish_design_deck.py --src <dir> --slug <slug> --title "<title>" [--project-id <id>]
+  publish_design_deck.py --src <dir> --slug <slug> --title "<t>" --gated [--password <pw>]
   ... [--repo ~/alloy-decks] [--no-push]
 """
-import argparse, os, shutil, subprocess, sys
+import argparse, json, os, shutil, subprocess, sys
 
-# Pinned React UMD + SRI (computed from the exact CDN bytes; see README).
 REACT = (
     '<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" '
     'integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z"></script>\n'
@@ -44,8 +41,6 @@ GFONTS = (
 
 
 def rewrite_css(css: str) -> str:
-    """Replace the local-font preamble (everything before :root) with a Google
-    Fonts @import. Leaves the :root tokens + classes untouched."""
     i = css.find(":root")
     return GFONTS + css[i:] if i != -1 else css
 
@@ -58,27 +53,57 @@ def inject_react(html: str) -> str:
     return html.replace("<head>", "<head>\n" + REACT, 1)
 
 
+def resolve_password(a) -> str:
+    """--password wins; else the shared default in .deck-secret; else error."""
+    if a.password:
+        return a.password
+    secret = os.path.join(a.repo, ".deck-secret")
+    if os.path.exists(secret):
+        pw = open(secret, encoding="utf-8").read().strip()
+        if pw:
+            return pw
+    sys.exit("--gated needs a password: pass --password, or seed the shared "
+             "default in .deck-secret (git-ignored).")
+
+
+def update_registry(a):
+    """Record this deck so change_deck_password.py can find gated decks to rotate."""
+    reg_path = os.path.join(a.repo, "decks.json")
+    reg = {}
+    if os.path.exists(reg_path):
+        reg = json.load(open(reg_path, encoding="utf-8"))
+    reg[a.slug] = {
+        "gated": bool(a.gated),
+        "title": a.title,
+        "project_id": a.project_id,   # needed to re-pull on rotation (gated only)
+        "deck_file": a.deck_file,
+    }
+    with open(reg_path, "w", encoding="utf-8") as f:
+        json.dump(reg, f, indent=2, sort_keys=True)
+        f.write("\n")
+    return reg_path
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Publish a Claude Design deck to alloy-decks Pages")
     ap.add_argument("--src", required=True, help="dir of pulled raw design files")
-    ap.add_argument("--slug", required=True, help="URL slug, e.g. team-guide")
-    ap.add_argument("--title", default="Deck", help="deck title (password page + tab)")
+    ap.add_argument("--slug", required=True)
+    ap.add_argument("--title", default="Deck")
     ap.add_argument("--repo", default=os.path.expanduser("~/alloy-decks"))
+    ap.add_argument("--project-id", default=None, help="Claude Design project id (recorded for rotation)")
     ap.add_argument("--deck-file", default=None, help="the .dc.html name (default: first found)")
-    ap.add_argument("--gated", action="store_true", help="password-protect the deck")
-    ap.add_argument("--password", default=None)
-    ap.add_argument("--no-push", action="store_true", help="assemble + commit but don't push")
+    ap.add_argument("--gated", action="store_true")
+    ap.add_argument("--password", default=None, help="overrides the shared default in .deck-secret")
+    ap.add_argument("--no-push", action="store_true")
     a = ap.parse_args()
-    if a.gated and not a.password:
-        sys.exit("--gated requires --password")
+
+    password = resolve_password(a) if a.gated else None
 
     out = os.path.join(a.repo, "docs", a.slug)
     if os.path.isdir(out):
         shutil.rmtree(out)
     os.makedirs(out, exist_ok=True)
 
-    # Copy every pulled file into out/ preserving structure; the .dc.html is
-    # handled specially (-> index.html); colors_and_type.css is rewritten.
     dc = None
     for root, _, files in os.walk(a.src):
         for fn in files:
@@ -105,12 +130,14 @@ def main() -> int:
         enc = os.path.join(os.path.dirname(os.path.abspath(__file__)), "gate", "encrypt.js")
         plain = idx + ".plain"
         os.rename(idx, plain)
-        subprocess.run(["node", enc, plain, a.password, idx, a.title], check=True)
+        subprocess.run(["node", enc, plain, password, idx, a.title], check=True)
         os.remove(plain)
+
+    reg_path = update_registry(a)
 
     url = f"https://mikejsln.github.io/alloy-decks/{a.slug}/"
     if not a.no_push:
-        subprocess.run(["git", "-C", a.repo, "add", f"docs/{a.slug}"], check=True)
+        subprocess.run(["git", "-C", a.repo, "add", f"docs/{a.slug}", os.path.basename(reg_path)], check=True)
         msg = (f"Publish deck: {a.slug}" + (" (gated)" if a.gated else "") +
                "\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>")
         subprocess.run(["git", "-C", a.repo, "commit", "-q", "-m", msg], check=True)
@@ -118,7 +145,8 @@ def main() -> int:
 
     print("PUBLISHED:", url + ("   [password required]" if a.gated else ""))
     if a.gated:
-        print("Share the password OUT-OF-BAND — it is not stored in the repo.")
+        print("Password: the shared default (.deck-secret)" if not a.password else "Password: (explicit --password)")
+        print("Share it out-of-band; it is NOT stored in the repo.")
     return 0
 
 
