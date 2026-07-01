@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1"></script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FlexWatt — Seed</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/alloy-partners-design-system-5ae951e7-7a59-41ed-9b4c-d2413e26791d/colors_and_type.css">
+<script src="_ds/alloy-partners-design-system-5ae951e7-7a59-41ed-9b4c-d2413e26791d/_ds_bundle.js"></script>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+<section data-label="Cover" style="position:relative;background:#081D59;color:#fff;width:100%;height:100%;display:flex;flex-direction:column;font-family:'NeuSans','DM Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="height:12px;background:#2929E2;flex:none;"></div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:120px 130px;min-height:0;">
+    <div style="font:600 26px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.22em;text-transform:uppercase;color:#6CE3FF;margin-bottom:44px;">InnovArise Venture Studio · Alloy Partners × Grupo AG</div>
+    <h1 style="font:800 116px/1.02 'NeuSans','DM Sans',system-ui,sans-serif;letter-spacing:-.03em;margin:0;max-width:16ch;">FlexWatt</h1>
+    <div style="margin-top:36px;"><div style="font:400 30px/1.5 'NeuSans','DM Sans',system-ui,sans-serif;color:#C3CAD6;margin-top:14px;max-width:42ch;">Software that turns Central America's heavy industrial load into a managed, monetizable grid resource</div><div style="font:400 30px/1.5 'NeuSans','DM Sans',system-ui,sans-serif;color:#C3CAD6;margin-top:14px;max-width:42ch;">Cuts peak-demand charges today; earns balancing-market revenue as LatAm markets open</div><div style="font:400 30px/1.5 'NeuSans','DM Sans',system-ui,sans-serif;color:#C3CAD6;margin-top:14px;max-width:42ch;">LatAm-first, software-only — no hardware, no balance-sheet drag</div><div style="font:400 30px/1.5 'NeuSans','DM Sans',system-ui,sans-serif;color:#C3CAD6;margin-top:14px;max-width:42ch;">Seed-stage venture · launch + ~$500K decision · July 2026</div></div>
+  </div>
+  <div style="position:absolute;left:130px;bottom:56px;font:400 22px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.06em;color:#8E97A6;">Alloy Partners &times; Grupo AG &middot; Build &middot; 2026-07-01</div>
+</section>
+<section data-label="Industrial plants overpay for power and " style="position:relative;background:#F4F4F4;color:#26262B;width:100%;height:100%;display:flex;flex-direction:column;font-family:'NeuSans','DM Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="height:12px;background:#2929E2;flex:none;"></div>
+  <div style="flex:1;display:flex;flex-direction:column;padding:104px 130px 90px;min-height:0;">
+    <div style="font:600 24px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.2em;text-transform:uppercase;color:#2929E2;margin-bottom:22px;">Problem</div>
+    <h2 style="font:800 76px/1.05 'NeuSans','DM Sans',system-ui,sans-serif;letter-spacing:-.02em;margin:0 0 48px;color:#081D59;max-width:22ch;">Industrial plants overpay for power and waste their flexibility</h2>
+    <ul style="list-style:none;margin:0;padding:0;max-width:44ch;"><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Demand/potencia charges are 30-70% of a heavy C&amp;I electricity bill (Briggs &amp; Stratton, 2024) [needs verification on regional %]</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Idle gensets and shiftable processes sit dormant — no plant builds the orchestration layer alone</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">No single plant is a market-relevant resource; flexibility is stranded value</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">No LatAm-native software both cuts the bill today and pools flexibility for grid revenue tomorrow</span></li></ul>
+  </div>
+  <div style="position:absolute;right:130px;bottom:56px;font:400 22px/1 'Roboto Mono',ui-monospace,monospace;color:#7F7F7F;">02 / 12</div>
+</section>
+<section data-label="The model is proven globally — LatAm is " style="position:relative;background:#F4F4F4;color:#26262B;width:100%;height:100%;display:flex;flex-direction:column;font-family:'NeuSans','DM Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="height:12px;background:#2929E2;flex:none;"></div>
+  <div style="flex:1;display:flex;flex-direction:column;padding:104px 130px 90px;min-height:0;">
+    <div style="font:600 24px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.2em;text-transform:uppercase;color:#2929E2;margin-bottom:22px;">Why now</div>
+    <h2 style="font:800 76px/1.05 'NeuSans','DM Sans',system-ui,sans-serif;letter-spacing:-.02em;margin:0 0 48px;color:#081D59;max-width:22ch;">The model is proven globally — LatAm is the open lane</h2>
+    <ul style="list-style:none;margin:0;padding:0;max-width:44ch;"><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Sympower raised ~EUR42M Series B, manages ~2.7 GW of flexibility</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Enel X (9+ GW) and Voltus (~8.1 GW) run large C&amp;I demand-response globally — none LatAm-native at scale</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Guatemala's PEG-5 tender drew 51 bidders offering ~4.7 GW vs 1,400 MW sought — capacity tension is real</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Central American markets (MER/SIEPAC) are maturing; Demanda Interrumpible already exists as a live revenue product</span></li></ul>
+  </div>
+  <div style="position:absolute;right:130px;bottom:56px;font:400 22px/1 'Roboto Mono',ui-monospace,monospace;color:#7F7F7F;">03 / 12</div>
+</section>
+<section data-label="Two stacked jobs: cut the bill now, earn" style="position:relative;background:#F4F4F4;color:#26262B;width:100%;height:100%;display:flex;flex-direction:column;font-family:'NeuSans','DM Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="height:12px;background:#2929E2;flex:none;"></div>
+  <div style="flex:1;display:flex;flex-direction:column;padding:104px 130px 90px;min-height:0;">
+    <div style="font:600 24px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.2em;text-transform:uppercase;color:#2929E2;margin-bottom:22px;">Solution</div>
+    <h2 style="font:800 76px/1.05 'NeuSans','DM Sans',system-ui,sans-serif;letter-spacing:-.02em;margin:0 0 48px;color:#081D59;max-width:22ch;">Two stacked jobs: cut the bill now, earn grid revenue later</h2>
+    <ul style="list-style:none;margin:0;padding:0;max-width:44ch;"><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Job 1 — Cut my bill (live today, regulation-independent): forecast demand-charge exposure, dispatch load-shift + gensets, shave the peak ~40%, no capex</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Job 2 — Pay me to be flexible (regulation-gated upside): pool flexibility across plants, monetize via Demanda Interrumpible, graduate to ancillary/balancing revenue</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Cost-avoidance today, grid revenue tomorrow — the base case stands on Job 1 alone</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Software-only orchestration over existing meters, gensets, and loads</span></li></ul>
+  </div>
+  <div style="position:absolute;right:130px;bottom:56px;font:400 22px/1 'Roboto Mono',ui-monospace,monospace;color:#7F7F7F;">04 / 12</div>
+</section>
+<section data-label="Software-only orchestration on the studi" style="position:relative;background:#F4F4F4;color:#26262B;width:100%;height:100%;display:flex;flex-direction:column;font-family:'NeuSans','DM Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="height:12px;background:#2929E2;flex:none;"></div>
+  <div style="flex:1;display:flex;flex-direction:column;padding:104px 130px 90px;min-height:0;">
+    <div style="font:600 24px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.2em;text-transform:uppercase;color:#2929E2;margin-bottom:22px;">Product</div>
+    <h2 style="font:800 76px/1.05 'NeuSans','DM Sans',system-ui,sans-serif;letter-spacing:-.02em;margin:0 0 48px;color:#081D59;max-width:22ch;">Software-only orchestration on the studio stack</h2>
+    <ul style="list-style:none;margin:0;padding:0;max-width:44ch;"><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Demand-charge forecast + M&amp;V baseline turns a meeting into a paid, verifiable savings number</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Shadow-mode dispatch (human-executed, no automated equipment control) proves savings are real and production-safe</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">M&amp;V ledger logs every event, veto, and verified $ delta — the savings-share evidence</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Two-plant pool view with per-plant data firewalling — tests the trust/competition objection</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Claude design library + plain HTML/CSS/JS + Supabase + GitHub Pages; English default, Spanish toggle</span></li></ul>
+  </div>
+  <div style="position:absolute;right:130px;bottom:56px;font:400 22px/1 'Roboto Mono',ui-monospace,monospace;color:#7F7F7F;">05 / 12</div>
+</section>
+<section data-label="Path to &gt;=$500M TAM via four named ve" style="position:relative;background:#F4F4F4;color:#26262B;width:100%;height:100%;display:flex;flex-direction:column;font-family:'NeuSans','DM Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="height:12px;background:#2929E2;flex:none;"></div>
+  <div style="flex:1;display:flex;flex-direction:column;padding:104px 130px 90px;min-height:0;">
+    <div style="font:600 24px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.2em;text-transform:uppercase;color:#2929E2;margin-bottom:22px;">Market</div>
+    <h2 style="font:800 76px/1.05 'NeuSans','DM Sans',system-ui,sans-serif;letter-spacing:-.02em;margin:0 0 48px;color:#081D59;max-width:22ch;">Path to &gt;=$500M TAM via four named vectors</h2>
+    <ul style="list-style:none;margin:0;padding:0;max-width:44ch;"><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Blended thesis ~$0.8-1.8B; clears the $500M floor on geography alone, without the regulation-gated revenue leg</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">(1) Geography: CA wedge (~0.4-0.9 GW flexible) → Mexico → Brazil/Andean/Southern Cone (8-14 GW LatAm flexible MW)</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">(2) More jobs per customer: cost-avoidance → DR fleet → ancillary/capacity bidding (regulation-gated hypothesis)</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">(3) More customer types: plants → data centers, agribusiness, cold-chain, EV depots, co-located BESS</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">(4) New products on the flexibility dataset: forecasting, procurement/hedging, Scope-2 MRV</span></li></ul>
+  </div>
+  <div style="position:absolute;right:130px;bottom:56px;font:400 22px/1 'Roboto Mono',ui-monospace,monospace;color:#7F7F7F;">06 / 12</div>
+</section>
+<section data-label="Price against the bill, not the seat" style="position:relative;background:#F4F4F4;color:#26262B;width:100%;height:100%;display:flex;flex-direction:column;font-family:'NeuSans','DM Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="height:12px;background:#2929E2;flex:none;"></div>
+  <div style="flex:1;display:flex;flex-direction:column;padding:104px 130px 90px;min-height:0;">
+    <div style="font:600 24px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.2em;text-transform:uppercase;color:#2929E2;margin-bottom:22px;">Business model</div>
+    <h2 style="font:800 76px/1.05 'NeuSans','DM Sans',system-ui,sans-serif;letter-spacing:-.02em;margin:0 0 48px;color:#081D59;max-width:22ch;">Price against the bill, not the seat</h2>
+    <ul style="list-style:none;margin:0;padding:0;max-width:44ch;"><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Phase 1: platform fee per connected site + 15-25% savings-share on verified demand-charge reduction [% needs verification vs LatAm ESCO/M&amp;V norms]</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Phase 2: take-rate on dispatched-MW market revenue (regulation-gated — not underwritten in base case)</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Phase 3: data products (forecasting, hedging, Scope-2 MRV) — high-margin lines on a sunk dataset</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Per-site ACV ~$225K/yr (5 MW × ~$45K/MW captured, set below Voltus's disclosed $98K-$279K/MW-yr)</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Software-only → ~75-80% gross margin at scale, no inventory or working-capital drag</span></li></ul>
+  </div>
+  <div style="position:absolute;right:130px;bottom:56px;font:400 22px/1 'Roboto Mono',ui-monospace,monospace;color:#7F7F7F;">07 / 12</div>
+</section>
+<section data-label="AG as launch pad and convener — never th" style="position:relative;background:#F4F4F4;color:#26262B;width:100%;height:100%;display:flex;flex-direction:column;font-family:'NeuSans','DM Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="height:12px;background:#2929E2;flex:none;"></div>
+  <div style="flex:1;display:flex;flex-direction:column;padding:104px 130px 90px;min-height:0;">
+    <div style="font:600 24px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.2em;text-transform:uppercase;color:#2929E2;margin-bottom:22px;">GTM &amp; traction plan</div>
+    <h2 style="font:800 76px/1.05 'NeuSans','DM Sans',system-ui,sans-serif;letter-spacing:-.02em;margin:0 0 48px;color:#081D59;max-width:22ch;">AG as launch pad and convener — never the sole customer</h2>
+    <ul style="list-style:none;margin:0;padding:0;max-width:44ch;"><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Cold-start solved: Phase 1 is valuable to a single plant standalone (no network effect needed to adopt)</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">AG's anchor load = first reference node; AG's convening + regulator/AMM standing seeds plants 2-N a cold startup can't reach</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Sequenced cheapest-first tests: (A2) demand-charge teardown → non-AG paid LOI; (A4) 4-8 wk shadow-mode M&amp;V trial</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Decisive NewCo gate (A1): &gt;=2 non-AG plants sign pool-participation intent — proves the model generalizes beyond AG</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Retention loop = monthly verified-savings statement on the CFO's desk; KPI #1 = non-AG plants pooled</span></li></ul>
+  </div>
+  <div style="position:absolute;right:130px;bottom:56px;font:400 22px/1 'Roboto Mono',ui-monospace,monospace;color:#7F7F7F;">08 / 12</div>
+</section>
+<section data-label="Validated model, empty LatAm-native lane" style="position:relative;background:#F4F4F4;color:#26262B;width:100%;height:100%;display:flex;flex-direction:column;font-family:'NeuSans','DM Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="height:12px;background:#2929E2;flex:none;"></div>
+  <div style="flex:1;display:flex;flex-direction:column;padding:104px 130px 90px;min-height:0;">
+    <div style="font:600 24px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.2em;text-transform:uppercase;color:#2929E2;margin-bottom:22px;">Competition &amp; novelty</div>
+    <h2 style="font:800 76px/1.05 'NeuSans','DM Sans',system-ui,sans-serif;letter-spacing:-.02em;margin:0 0 48px;color:#081D59;max-width:22ch;">Validated model, empty LatAm-native lane</h2>
+    <ul style="list-style:none;margin:0;padding:0;max-width:44ch;"><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Global incumbents (Enel X, Sympower, Voltus, GridBeyond) own the model — only the LatAm geography is fresh</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Novelty = LatAm-native fast-follower; the durable, transferable moat is proprietary LatAm industrial-flexibility data + the assembled pool</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Software commoditizes; speed-to-pool is the defense — the dataset compounds with each plant added</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Data network effect: more plants → better archetype forecasts → easier to win plant N+1</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Risk: a single Enel X LatAm move could close the lane — time-boxed, so move fast</span></li></ul>
+  </div>
+  <div style="position:absolute;right:130px;bottom:56px;font:400 22px/1 'Roboto Mono',ui-monospace,monospace;color:#7F7F7F;">09 / 12</div>
+</section>
+<section data-label="Fundable at the portfolio bar — Phase 2 " style="position:relative;background:#F4F4F4;color:#26262B;width:100%;height:100%;display:flex;flex-direction:column;font-family:'NeuSans','DM Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="height:12px;background:#2929E2;flex:none;"></div>
+  <div style="flex:1;display:flex;flex-direction:column;padding:104px 130px 90px;min-height:0;">
+    <div style="font:600 24px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.2em;text-transform:uppercase;color:#2929E2;margin-bottom:22px;">Financials &amp; MOIC</div>
+    <h2 style="font:800 76px/1.05 'NeuSans','DM Sans',system-ui,sans-serif;letter-spacing:-.02em;margin:0 0 48px;color:#081D59;max-width:22ch;">Fundable at the portfolio bar — Phase 2 clears it decisively</h2>
+    <ul style="list-style:none;margin:0;padding:0;max-width:44ch;"><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Base case (Phase 1 only): ~30 sites / ~150 MW, ~$6.75M Yr-3 ARR, ~$22M exit ARR × 5x = ~$110M exit → ~4x MOIC, near the 5x bar</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Upside (Phase 2 opens): ~$45M exit ARR × 6x = ~$270M → ~5x+ MOIC, clears the bar</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Downside (descope-to-AG): internal tool, &lt;1x — the non-AG-pooling test is the gating decision</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">~75-80% gross margin; LTV:CAC ~10:1; payback ~4-7 months</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Low capital intensity — software-only, no hardware/inventory, bills in arrears against verified savings</span></li></ul>
+  </div>
+  <div style="position:absolute;right:130px;bottom:56px;font:400 22px/1 'Roboto Mono',ui-monospace,monospace;color:#7F7F7F;">10 / 12</div>
+</section>
+<section data-label="Approve launch + ~$500K for 35% at forma" style="position:relative;background:#F4F4F4;color:#26262B;width:100%;height:100%;display:flex;flex-direction:column;font-family:'NeuSans','DM Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="height:12px;background:#2929E2;flex:none;"></div>
+  <div style="flex:1;display:flex;flex-direction:column;padding:104px 130px 90px;min-height:0;">
+    <div style="font:600 24px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.2em;text-transform:uppercase;color:#2929E2;margin-bottom:22px;">The ask</div>
+    <h2 style="font:800 76px/1.05 'NeuSans','DM Sans',system-ui,sans-serif;letter-spacing:-.02em;margin:0 0 48px;color:#081D59;max-width:22ch;">Approve launch + ~$500K for 35% at formation</h2>
+    <ul style="list-style:none;margin:0;padding:0;max-width:44ch;"><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">~$500K formation check for 35% fully-diluted (Post-Money SAFE), implied ~$1.43M post-money</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Cap table: studio 35% · founding CEO ~35% · CTO ~20% · ESOP 10%; 4-yr vest, 1-yr cliff</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Use of funds: fund the wedge to evidence — A2 (non-AG WTP) and A4 (safe, measurable savings) tests first, then A1 (the pooling gate)</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Build nothing automated until A2 + A4 clear — keeps spend low while de-risking the most dangerous assumptions</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Seed (~$1M @ ~$5M post) is a future milestone, underwritten by the cost-avoidance ARR ramp + first non-AG paid site</span></li></ul>
+  </div>
+  <div style="position:absolute;right:130px;bottom:56px;font:400 22px/1 'Roboto Mono',ui-monospace,monospace;color:#7F7F7F;">11 / 12</div>
+</section>
+<section data-label="Why this venture wins from AG that a col" style="position:relative;background:#F4F4F4;color:#26262B;width:100%;height:100%;display:flex;flex-direction:column;font-family:'NeuSans','DM Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="height:12px;background:#2929E2;flex:none;"></div>
+  <div style="flex:1;display:flex;flex-direction:column;padding:104px 130px 90px;min-height:0;">
+    <div style="font:600 24px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.2em;text-transform:uppercase;color:#2929E2;margin-bottom:22px;">The Grupo AG advantage</div>
+    <h2 style="font:800 76px/1.05 'NeuSans','DM Sans',system-ui,sans-serif;letter-spacing:-.02em;margin:0 0 48px;color:#081D59;max-width:22ch;">Why this venture wins from AG that a cold startup can't</h2>
+    <ul style="list-style:none;margin:0;padding:0;max-width:44ch;"><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Anchor flexible load: AG's plants are the first dispatchable MW and the proof-of-concept reference</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Regulator + market-operator (AMM) seat: AG's standing as a top national consumer earns access a startup can't get cold</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Convener: AG's relationships warm-intro the first multi-party pool, solving the aggregator cold-start</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Guardrail: AG is the launch pad, never the sole customer — the data, pool, and relationships sit in the NewCo and must generalize to non-AG plants, fast</span></li><li style="display:flex;gap:22px;align-items:flex-start;margin-bottom:26px;">
+        <span style="flex:none;width:14px;height:14px;margin-top:16px;background:#2929E2;border-radius:3px;"></span>
+        <span style="font:400 36px/1.45 'NeuSans','DM Sans',system-ui,sans-serif;color:#26262B;">Most dangerous assumption owned head-on: does non-AG load pool, and does the regulation-gated revenue leg actually open in LatAm?</span></li></ul>
+  </div>
+  <div style="position:absolute;right:130px;bottom:56px;font:400 22px/1 'Roboto Mono',ui-monospace,monospace;color:#7F7F7F;">12 / 12</div>
+</section>
+</x-import>
+</x-dc>
+</body>
+</html>

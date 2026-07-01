@@ -1,0 +1,239 @@
+/* Fonts via Google Fonts CDN (Pages allows external hosts). Per the Alloy
+   design system, DM Sans is NeuSans's sanctioned web substitute, so the
+   "NeuSans","DM Sans" stack falls to DM Sans here. */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto+Mono:wght@400;500;700&display=swap");
+
+:root {
+  /* ---------- PRIMARY PALETTE ---------- */
+  --alloy-ultramarine:   #2929E2; /* Eyebrows, labels, CTAs, accent bars */
+  --alloy-azure:         #3172F4; /* CTAs, links, accent bars (softer) */
+  --alloy-electric-blue: #6CE3FF; /* Highlights, callouts */
+  --alloy-dark-sapphire: #081D59; /* Dark backgrounds, deep contrast */
+
+  /* ---------- NEUTRALS ---------- */
+  --alloy-off-white:   #F4F4F4;
+  --alloy-smoke:       #D9D6DB;
+  --alloy-mid-grey:    #B0B2B8;
+  --alloy-steel:       #8C8C8C;
+  --alloy-muted:       #7F7F7F;
+  --alloy-shadow-gray: #3A3A3A;
+  --alloy-ink:         #26262B; /* Warm near-black — primary body text in decks */
+  --alloy-black:       #000000;
+  --alloy-white:       #FFFFFF;
+
+  /* ---------- SECONDARY (sparingly, for emphasis) ---------- */
+  --alloy-orange: #F55C18;
+  --alloy-pink:   #FBAA71;
+  --alloy-yellow: #FADB38;
+  --alloy-flax:   #FBE392;
+  --alloy-red:    #F43A2C;
+  --alloy-blush:  #FF6E61;
+  --alloy-green:  #94D955;
+  --alloy-aqua:   #26FDD4;
+
+  /* ---------- SEMANTIC ---------- */
+  --bg:           var(--alloy-off-white);
+  --bg-dark:      var(--alloy-black);
+  --bg-sapphire:  var(--alloy-dark-sapphire);
+  --surface:      var(--alloy-white);
+  --surface-alt:  var(--alloy-smoke);
+  --surface-mid:  var(--alloy-mid-grey);
+
+  --fg:           var(--alloy-black);
+  --fg-on-dark:   var(--alloy-white);
+  --fg-body:      var(--alloy-ink);
+  --fg-muted:     var(--alloy-muted);
+  --fg-steel:     var(--alloy-steel);
+
+  --accent:       var(--alloy-ultramarine);
+  --accent-link:  var(--alloy-azure);
+  --accent-hi:    var(--alloy-electric-blue);
+
+  --divider:      var(--alloy-smoke);
+  --border:       rgba(0,0,0,0.08);
+  --border-dark:  rgba(255,255,255,0.10);
+
+  /* ---------- TYPOGRAPHY ---------- */
+  --font-sans:  "NeuSans", "DM Sans", system-ui, sans-serif;
+  --font-mono:  "Roboto Mono", ui-monospace, Menlo, monospace;
+
+  /* Weight ladder */
+  --w-light: 300;    /* @kind font */
+  --w-regular: 400;  /* @kind font */
+  --w-medium: 500;   /* @kind font */
+  --w-semibold: 600; /* @kind font */
+  --w-bold: 700;     /* @kind font */
+
+  /* Web type scale — presentational sizes (decks use pt values in md spec) */
+  --fs-h1:      clamp(2.25rem, 3.5vw + 1rem, 3.5rem);   /* @kind other */ /* 36–56px Hero */
+  --fs-h2:      clamp(1.5rem, 1.5vw + 0.8rem, 2.125rem); /* @kind other */ /* 24–34px Section */
+  --fs-h3:      1.125rem;   /* 18px — Subhead / card title  @kind font */
+  --fs-h4:      0.8125rem;  /* 13px — Card label  @kind font */
+  --fs-eyebrow: 0.6875rem;  /* 11px — Eyebrow  @kind font */
+  --fs-body:    1rem;       /* 16px — Body (web). Decks use 8–11pt.  @kind font */
+  --fs-body-sm: 0.875rem;   /* 14px  @kind font */
+  --fs-caption: 0.75rem;    /* 12px  @kind font */
+
+  --lh-tight: 1.1;   /* @kind font */
+  --lh-snug:  1.25;  /* @kind font */
+  --lh-body:  1.55;  /* @kind font */
+
+  /* ---------- SPACING (8px base) ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  /* ---------- RADII ---------- */
+  --radius-none: 0;
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-pill: 999px;
+
+  /* ---------- ELEVATION ---------- */
+  --shadow-sm:  0 1px 2px rgba(8,29,89,0.06), 0 1px 1px rgba(8,29,89,0.04);
+  --shadow-md:  0 6px 16px rgba(8,29,89,0.08), 0 2px 4px rgba(8,29,89,0.05);
+  --shadow-lg:  0 20px 40px rgba(8,29,89,0.12), 0 6px 12px rgba(8,29,89,0.06);
+  --shadow-focus: 0 0 0 3px rgba(41,41,226,0.25);
+
+  /* Dark-mode shadows (deeper, cooler) */
+  --shadow-sm-dark: 0 1px 2px rgba(0,0,0,0.6);
+  --shadow-md-dark: 0 8px 20px rgba(0,0,0,0.55);
+  --shadow-lg-dark: 0 24px 48px rgba(0,0,0,0.6);
+
+  /* ---------- MOTION ---------- */
+  --dur-fast:   120ms;  /* @kind other */
+  --dur-base:   200ms;  /* @kind other */
+  --dur-slow:   360ms;  /* @kind other */
+  --ease-std:   cubic-bezier(0.2, 0.7, 0.2, 1);  /* @kind other */
+  --ease-emph:  cubic-bezier(0.2, 0.9, 0.1, 1);  /* @kind other */
+}
+
+/* =========================================================================
+   Base type styles — apply as classes
+   ========================================================================= */
+
+html, body {
+  font-family: var(--font-sans);
+  font-weight: var(--w-light);
+  color: var(--fg);
+  background: var(--bg);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.alloy-h1 {
+  font-family: var(--font-sans);
+  font-weight: var(--w-regular);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+  color: var(--fg);
+}
+.alloy-h2 {
+  font-family: var(--font-sans);
+  font-weight: var(--w-regular);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  letter-spacing: -0.005em;
+  color: var(--fg);
+}
+.alloy-h3 {
+  font-family: var(--font-sans);
+  font-weight: var(--w-medium);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  color: var(--fg);
+}
+.alloy-h4 {
+  font-family: var(--font-sans);
+  font-weight: var(--w-bold);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-snug);
+  color: var(--fg);
+  text-transform: none;
+}
+.alloy-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: var(--w-light);
+  font-size: var(--fs-eyebrow);
+  line-height: 1;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: inline-block;
+  margin-bottom: var(--space-3);
+}
+.alloy-eyebrow--muted { color: var(--fg-muted); }
+.alloy-eyebrow--white { color: var(--fg-on-dark); }
+
+.alloy-body {
+  font-family: var(--font-sans);
+  font-weight: var(--w-light);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg-body);
+}
+.alloy-body--bold  { font-weight: var(--w-semibold); color: var(--fg); }
+.alloy-body--grey  { color: var(--fg-muted); }
+.alloy-body--white { color: var(--fg-on-dark); }
+
+.alloy-mono {
+  font-family: var(--font-mono);
+  font-weight: var(--w-regular);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Section number prefix (01, 02, 03…) */
+.alloy-section-no {
+  font-family: var(--font-sans);
+  font-weight: var(--w-light);
+  color: var(--fg-muted);
+  letter-spacing: 0.04em;
+}
+
+/* Accent bar — hero top bar on decks & heroes */
+.alloy-accent-bar {
+  height: 12px;
+  background: var(--alloy-azure);
+  width: 100%;
+}
+.alloy-accent-bar--ultramarine { background: var(--alloy-ultramarine); }
+
+/* =========================================================================
+   Diagonal-lines motif — the signature Alloy brand graphic.
+   ========================================================================= */
+.alloy-diagonals {
+  background-image: repeating-linear-gradient(
+    58deg,
+    var(--alloy-ultramarine) 0,
+    var(--alloy-ultramarine) 2px,
+    transparent 2px,
+    transparent 26px
+  );
+}
+.alloy-diagonals--white {
+  background-image: repeating-linear-gradient(
+    58deg,
+    #ffffff 0, #ffffff 2px,
+    transparent 2px, transparent 26px
+  );
+}
+.alloy-diagonals--azure {
+  background-image: repeating-linear-gradient(
+    58deg,
+    var(--alloy-azure) 0, var(--alloy-azure) 2px,
+    transparent 2px, transparent 26px
+  );
+}
+
+/* Emphasis word inside a headline — the signature one-word color pop. */
+.alloy-emph { color: var(--alloy-ultramarine); }
+.alloy-emph--azure { color: var(--alloy-azure); }
+.alloy-emph--electric { color: var(--alloy-electric-blue); }
